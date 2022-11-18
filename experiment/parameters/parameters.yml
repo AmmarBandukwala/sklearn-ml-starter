@@ -1,0 +1,33 @@
+GENERAL:
+  Data_Path: './data'
+  Model_Name: 'stock-market-regression'
+PARAMETERS:
+  Train_Year: '2021-12-31'
+  Test_Year: '2022-01-01'
+  Hyper_Parameters:
+    LR:
+      fit_intercept: [True, False]
+      positive: [True, False]
+    NN:
+      activation: ['identity', 'logistic', 'tanh', 'relu']
+      solver: ['lbfgs', 'sgd', 'adam']
+      alpha: [0.0001, 0.0002]
+      learning_rate: ['constant', 'invscaling', 'adaptive']
+    KNN: 
+      n_neighbors: [5,10,15]
+      weights: ['uniform' ,'distance']
+      algorithm: ['ball_tree', 'kd_tree', 'brute']
+    RF:
+      n_estimators: [20, 50, 100]
+      max_features: ['sqrt', 'log2']
+      max_depth: [5,6,7,8,9,10,11,12,13,14]
+    SVR:
+      C: 1.0
+      kernel: ['linear', 'poly', 'rbf', 'sigmoid', 'precomputed']
+      degree: [3, 5, 9]
+      gamma: ['scale', 'auto','float']
+  Index: 'Date'
+  Target: 'Close'
+  Features:
+  - 'Close'
+  - 'Volume'

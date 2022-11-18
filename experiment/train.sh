@@ -1,0 +1,1 @@
+python experiment/model_training.py --parameter_file_local experiment/parameters/workflow_parameters.yml

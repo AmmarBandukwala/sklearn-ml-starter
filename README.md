@@ -1,2 +1,2 @@
 # sklearn-ml-starter
-Example - End to End Sklearn Machine Learning Project
+A starter solution with Scikit learn model with clean structure, MLFlow, flask api, and a simple react front end client.
