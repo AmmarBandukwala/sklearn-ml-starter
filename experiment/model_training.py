@@ -9,6 +9,7 @@ from datetime import datetime
 from common.bootstrap import setup
 from common.model_helper import search_grid
 from common.outputs_helper import generate_box_plot, generate_stock_time_series_plot, generate_xy_plot
+from common.mlflow_helper import get_artifacts_by_run_id
 from data_prep import load_data
 
 from scipy.stats import pearsonr
@@ -19,9 +20,6 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.neural_network import MLPRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import TimeSeriesSplit, cross_val_score
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
 
 # DEV
 debug_path = os.path.join("experiment", "parameters", "parameters.yml")
@@ -141,6 +139,8 @@ generate_xy_plot(y_test=y_test, y_train=y_train, y_pred=y_pred, y_train_pred=y_t
 
 # End Run
 mlflow.end_run()
+
+get_artifacts_by_run_id(run_id=run.info.run_id, download=True)
 
 # Register the Model (Example if deploy tracking server with register.)
 # mlflow.sklearn.log_model(
